@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Caculator</title>
+    <link rel="stylesheet" type="text/css" href="caculator.css">
+    <script type="text/javascript" src="caculator.js"></script>
+</head>
+
+<body onload="init()">
+    <div class="div1">
+        <div class="div2">
+            <input type="text" id="Text1" class="text1">
+        </div>
+
+        <div class="div3">
+            <input type="button" value="清" class="">
+            <input type="button" value="删" class="">
+            <input type="button" value="+/-" class="">
+            <input type="button" value="/" class="">
+            <input type="button" value="1" class="">
+
+            <input type="button" value="2" class="">
+            <input type="button" value="3" class="">
+            <input type="button" value="*" class="">
+            <input type="button" value="4" class="">
+            <input type="button" value="5" class="">
+
+            <input type="button" value="6" class="">
+            <input type="button" value="-" class="">
+            <input type="button" value="7" class="">
+            <input type="button" value="8" class="">
+            <input type="button" value="9" class="">
+
+            <input type="button" value="+" class="">
+            <input type="button" value="0" class="">
+            <input type="button" value="." class="">
+            <input type="button" value="=" class="">
+            <input type="button" value="搜" id="baidu">
+            <input type="shorttext" id="InputX1" name="equation" style="display: none;">
+            <span id="onex" style="display: none;">x+</span>
+            <input type="shorttext" id="InputY1" name="equation" style="display: none;">
+            <span id="oney" style="display: none;">y</span>
+            <span id="onea" style="display: none;">+</span>
+            <input type="shorttext" id="InputZ1" name="equation" style="display: none;">
+            <span id="onez" style="display: none;">z</span>
+            <span id="onee" style="display: none;">=</span>
+            <input type="shorttext" id="Input1" name="equation" style="display: none;">
+            <input type="shorttext" id="InputX2" name="equation" style="display: none;">
+            <span id="twox" style="display: none;">x+</span>
+            <input type="shorttext" id="InputY2" name="equation" style="display: none;">
+            <span id="twoy" style="display: none;">y</span>
+            <span id="twoa" style="display: none;">+</span>
+            <input type="shorttext" id="InputZ2" name="equation" style="display: none;">
+            <span id="twoz" style="display: none;">z</span>
+            <span id="twoe" style="display: none;">=</span>
+            <input type="shorttext" id="Input2" name="equation" style="display: none;">
+            <input type="shorttext" id="InputX3" name="equation" style="display: none;">
+            <span id="thrx" style="display: none;">x+</span>
+            <input type="shorttext" id="InputY3" name="equation" style="display: none;">
+            <span id="thry" style="display: none;">y</span>
+            <span id="thra" style="display: none;">+</span>
+            <input type="shorttext" id="InputZ3" name="equation" style="display: none;">
+            <span id="thrz" style="display: none;">z</span>
+            <span id="thre" style="display: none;">=</span>
+            <input type="shorttext" id="Input3" name="equation" style="display: none;">
+            <input type="widebutton" value="2元1次" class="">
+            <input type="widebutton" value="3元1次" class="">
+            <input type="submit" value="解方程" id="solveButton">
+            x=
+            <input type="middletext" id="ouputx" value=0 readonly disabled>
+            y=
+            <input type="middletext" id="ouputy" value=0 readonly disabled>
+            z=
+            <input type="middletext" id="ouputz" value=0 readonly disabled>
+        </div>
+    </div>
+</body>
+
+</html>

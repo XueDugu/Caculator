@@ -1,0 +1,64 @@
+.div1 {
+    width: 180px;
+    height: 200px;
+    top: 100px;
+    left: 100px;
+    position: absolute;
+    background: url("../img/img_1.png");
+}
+
+.div2 {
+    width: 140px;
+    position: relative;
+    left: 15px;
+    top: 42px;
+}
+
+.text1 {
+    width: 140px;
+    text-align: right;
+    background-color: white;
+}
+
+.div3 {
+    width: 160px;
+    height: 116px;
+    position: relative;
+    left: 15px;
+    top: 50px;
+}
+
+input[type="button"] {
+    width: 30px;
+    margin-right: 5px;
+    border-radius: 10px;
+    background: goldenrod;
+}
+
+input[type="button"]:hover {
+    background-color: cornflowerblue;
+    border: 2px solid;
+}
+
+input[type="widebutton"] {
+    width: 45px;
+    margin-right: 5px;
+    border-radius: 10px;
+    background: rgb(206, 218, 32);
+}
+
+input[type="shorttext"] {
+    width: 120px;
+    text-align: right;
+    background-color: white;
+}
+
+input[type="middletext"] {
+    width: 110px;
+    text-align: right;
+    background-color: white;
+}
+
+#solveButton {
+    width: 150px;
+}
