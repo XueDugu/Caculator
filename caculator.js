@@ -29,6 +29,8 @@ function initializeLabel() {
 function addFunctionality() {
     // 获取文本框元素
     let getText = document.getElementById("Text1");
+    let getTextx = document.getElementById("outputx");
+    let getTexty = document.getElementById("outputy");
     // 获取所有输入框元素
     let nums = document.getElementsByTagName("input");
     let numFirst, symbol;
@@ -173,6 +175,7 @@ function addFunctionality() {
                         break;
                     case "解方程":
                         if (equation == 2) {
+                            getText.value = -2;
                             var a = parseFloat(document.getElementById("InputX1").value);
                             var b = parseFloat(document.getElementById("InputY1").value);
                             var d = parseFloat(document.getElementById("InputX2").value);
@@ -180,16 +183,18 @@ function addFunctionality() {
                             var c = parseFloat(document.getElementById("Input1").value);
                             var f = parseFloat(document.getElementById("Input2").value);
                             if (a * e != b * d) {
-                                getText.value = -2;
                                 getTextx.value = (c * e - b * f) / (a * e - b * d);
                                 getTexty.value = (c * d - a * f) / (b * d - a * e);
                             }
                         }
-                        if (equation == 3) {
+                        else if (equation == 3) {
                             getText.value = -3;
                             outputx.value = -1;
                             outputy.value = -1;
                             outputz.value = -1;
+                        }
+                        else{
+                            getText.value = -1;
                         }
                 }
             }
