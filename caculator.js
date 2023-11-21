@@ -31,6 +31,7 @@ function addFunctionality() {
     let getText = document.getElementById("Text1");
     let getTextx = document.getElementById("outputx");
     let getTexty = document.getElementById("outputy");
+    let getTextz = document.getElementById("outputz");
     // 获取所有输入框元素
     let nums = document.getElementsByTagName("input");
     let numFirst, symbol;
@@ -89,7 +90,7 @@ function addFunctionality() {
                         break;
                     case "2元1次":
                         equation = 2;
-                        getText.value = 2;
+                        getText.value = "求解2元1次方程";
                         var X = document.getElementById("InputX1");
                         X.style.display = "block";
                         var Y = document.getElementById("InputY1");
@@ -117,7 +118,7 @@ function addFunctionality() {
                         break;
                     case "3元1次":
                         equation = 3;
-                        getText.value = 3;
+                        getText.value = "求解3元1次方程";
                         var X = document.getElementById("InputX1");
                         X.style.display = "block";
                         var Y = document.getElementById("InputY1");
@@ -175,7 +176,6 @@ function addFunctionality() {
                         break;
                     case "解方程":
                         if (equation == 2) {
-                            getText.value = -2;
                             var a = parseFloat(document.getElementById("InputX1").value);
                             var b = parseFloat(document.getElementById("InputY1").value);
                             var d = parseFloat(document.getElementById("InputX2").value);
@@ -183,15 +183,35 @@ function addFunctionality() {
                             var c = parseFloat(document.getElementById("Input1").value);
                             var f = parseFloat(document.getElementById("Input2").value);
                             if (a * e != b * d) {
+                                getText.value = "成功解出2元1次方程";
                                 getTextx.value = (c * e - b * f) / (a * e - b * d);
                                 getTexty.value = (c * d - a * f) / (b * d - a * e);
+                            }
+                            else{
+                                getText.value = "解不出2元1次方程";
                             }
                         }
                         else if (equation == 3) {
                             getText.value = -3;
-                            outputx.value = -1;
-                            outputy.value = -1;
-                            outputz.value = -1;
+                            var a = parseFloat(document.getElementById("InputX1").value);
+                            var b = parseFloat(document.getElementById("InputY1").value);
+                            var c = parseFloat(document.getElementById("InputZ1").value);
+                            var d = parseFloat(document.getElementById("Input1").value);
+                            var e = parseFloat(document.getElementById("InputX2").value);
+                            var f = parseFloat(document.getElementById("InputY2").value);
+                            var g = parseFloat(document.getElementById("InputZ2").value);
+                            var h = parseFloat(document.getElementById("Input2").value);
+                            var i = parseFloat(document.getElementById("InputX3").value);
+                            var j = parseFloat(document.getElementById("InputY3").value);
+                            var k = parseFloat(document.getElementById("InputZ3").value);
+                            var l = parseFloat(document.getElementById("Input3").value);
+                            [getTextx.value,getTexty.value,getTextz.value] = solveThreeVariableEquation(a,b,c,d,e,f,g,h,i,j,k,l);
+                            if(isNaN(getTextx.value)||isNaN(getTexty.value)||isNaN(getTextz.value)){
+                                getText.value = "解不出3元1次方程";
+                            }
+                            else{
+                                getText.value = "成功解出3元1次方程";
+                            }
                         }
                         else{
                             getText.value = -1;
@@ -242,5 +262,24 @@ function addLink() {
 //     let getText = equation.target;
 // }
 
-// function solveThreeVariableEquation(equation) {
-// }
+function solveThreeVariableEquation(a,b,c,d,e,f,g,h,i,j,k,l) {
+    var matrix=[[a,b,c],[e,f,g],[i,j,k]];
+    // 计算行列式
+    const det = matrix[0][0] * (matrix[1][1] * matrix[2][2] - matrix[2][1] * matrix[1][2]) -
+                matrix[0][1] * (matrix[1][0] * matrix[2][2] - matrix[1][2] * matrix[2][0]) +
+                matrix[0][2] * (matrix[1][0] * matrix[2][1] - matrix[1][1] * matrix[2][0]);
+
+    // 计算伴随矩阵
+    const adjugateMatrix = [
+        [matrix[1][1] * matrix[2][2] - matrix[2][1] * matrix[1][2], -(matrix[0][1] * matrix[2][2] - matrix[0][2] * matrix[2][1]), matrix[0][1] * matrix[1][2] - matrix[0][2] * matrix[1][1]],
+        [-(matrix[1][0] * matrix[2][2] - matrix[1][2] * matrix[2][0]), matrix[0][0] * matrix[2][2] - matrix[0][2] * matrix[2][0], -(matrix[0][0] * matrix[1][2] - matrix[0][2] * matrix[1][0])],
+        [matrix[1][0] * matrix[2][1] - matrix[1][1] * matrix[2][0], -(matrix[0][0] * matrix[2][1] - matrix[0][1] * matrix[2][0]), matrix[0][0] * matrix[1][1] - matrix[0][1] * matrix[1][0]]
+    ];
+
+    // 计算逆矩阵
+    const inverseMatrix = adjugateMatrix.map(row => row.map(entry => entry / det));
+    let x = d*inverseMatrix[0][0]+h*inverseMatrix[0][1]+l*inverseMatrix[0][2];
+    let y = d*inverseMatrix[1][0]+h*inverseMatrix[1][1]+l*inverseMatrix[1][2];
+    let z = d*inverseMatrix[2][0]+h*inverseMatrix[2][1]+l*inverseMatrix[2][2];
+    return [x,y,z];
+}
