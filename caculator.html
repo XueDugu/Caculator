@@ -15,6 +15,7 @@
         </div>
 
         <div class="div3">
+            <input type="submit" value="文本框解锁/锁定" id="unlock">
             <input type="button" value="清" class="">
             <input type="button" value="删" class="">
             <input type="button" value="+/-" class="">
@@ -37,7 +38,11 @@
             <input type="button" value="0" class="">
             <input type="button" value="." class="">
             <input type="button" value="=" class="">
-            <input type="button" value="搜" id="baidu">
+            <input type="button" value="搜" id="search">
+            <input type="widebutton" value="Baidu" id="baidu" class="" style="display: none;">
+            <input type="widebutton" value="Google" id="google" class="" style="display: none;">
+            <input type="widebutton" value="Bing" id="bing" class="" style="display: none;">
+            <input type="widebutton" value="Yahoo" id="yahoo" class="" style="display: none;">
             <input type="shorttext" id="InputX1" name="equation" style="display: none;">
             <span id="onex" style="display: none;">x+</span>
             <span id="one2x" style="display: none;">x^2+</span>
@@ -47,6 +52,9 @@
             <span id="onea" style="display: none;">+</span>
             <input type="shorttext" id="InputZ1" name="equation" style="display: none;">
             <span id="onez" style="display: none;">z</span>
+            <span id="onead" style="display: none;">+</span>
+            <input type="shorttext" id="InputW1" name="equation" style="display: none;">
+            <span id="onew" style="display: none;">w</span>
             <span id="onee" style="display: none;">=</span>
             <input type="shorttext" id="Input1" name="equation" style="display: none;">
             <input type="shorttext" id="InputX2" name="equation" style="display: none;">
@@ -56,6 +64,9 @@
             <span id="twoa" style="display: none;">+</span>
             <input type="shorttext" id="InputZ2" name="equation" style="display: none;">
             <span id="twoz" style="display: none;">z</span>
+            <span id="twoad" style="display: none;">+</span>
+            <input type="shorttext" id="InputW2" name="equation" style="display: none;">
+            <span id="twow" style="display: none;">w</span>
             <span id="twoe" style="display: none;">=</span>
             <input type="shorttext" id="Input2" name="equation" style="display: none;">
             <input type="shorttext" id="InputX3" name="equation" style="display: none;">
@@ -65,8 +76,23 @@
             <span id="thra" style="display: none;">+</span>
             <input type="shorttext" id="InputZ3" name="equation" style="display: none;">
             <span id="thrz" style="display: none;">z</span>
+            <span id="thrad" style="display: none;">+</span>
+            <input type="shorttext" id="InputW3" name="equation" style="display: none;">
+            <span id="thrw" style="display: none;">w</span>
             <span id="thre" style="display: none;">=</span>
             <input type="shorttext" id="Input3" name="equation" style="display: none;">
+            <input type="shorttext" id="InputX4" name="equation" style="display: none;">
+            <span id="fourx" style="display: none;">x+</span>
+            <input type="shorttext" id="InputY4" name="equation" style="display: none;">
+            <span id="foury" style="display: none;">y</span>
+            <span id="foura" style="display: none;">+</span>
+            <input type="shorttext" id="InputZ4" name="equation" style="display: none;">
+            <span id="fourz" style="display: none;">z</span>
+            <span id="fourad" style="display: none;">+</span>
+            <input type="shorttext" id="InputW4" name="equation" style="display: none;">
+            <span id="fourw" style="display: none;">w</span>
+            <span id="foure" style="display: none;">=</span>
+            <input type="shorttext" id="Input4" name="equation" style="display: none;">
             <input type="widebutton" value="1元2次" class="">
             <input type="widebutton" value="2元1次" class="">
             <input type="widebutton" value="3元1次" class="">
@@ -82,6 +108,10 @@
             <input type="middletext" id="outputw" value="0" readonly disabled>
             <input type="widerbutton" value="显示/关闭画板" class="">
             <iframe src="https://www.netpad.net.cn/svg.html" id="board" width="1100" height="800" style="display: none;"></iframe>
+            <input type="longbutton" value="显示/关闭需代理ChatGPT" class="">
+            <iframe src="https://chat.openai.com/" id="openai" width="1100" height="800" style="display: none;"></iframe>
+            <input type="longbutton" value="显示/关闭无代理ChatGPT" class="">
+            <iframe src="https://chat.kbiai.de/#/" id="chat" width="1100" height="800" style="display: none;"></iframe>
         </div>
     </div>
 </body>

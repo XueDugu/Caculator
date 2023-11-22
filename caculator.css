@@ -54,6 +54,13 @@ input[type="widerbutton"] {
     background: rgb(32, 218, 203);
 }
 
+input[type="longbutton"] {
+    width: 155px;
+    margin-right: 5px;
+    border-radius: 10px;
+    background: rgb(32, 218, 203);
+}
+
 input[type="shorttext"] {
     width: 120px;
     text-align: right;
@@ -67,5 +74,9 @@ input[type="middletext"] {
 }
 
 #solveButton {
+    width: 150px;
+}
+
+#unlock {
     width: 150px;
 }
