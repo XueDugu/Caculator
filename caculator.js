@@ -3,8 +3,23 @@ function init() {
     initializeLabel();
     // 添加功能
     addFunctionality();
+    monitor();
 }
-
+function monitor(){
+    document.getElementById("home").addEventListener("click", goHome);
+    document.getElementById("caculator").addEventListener("click", showCaculator);
+}
+function goHome(){
+    window.location.href = "http://github.com/XueDugu/";
+}
+function showCaculator(){
+    var divElement = document.querySelector(".div1");
+    if (divElement.style.display === "none" || divElement.style.display === "") {
+        divElement.style.display = "block";
+    } else {
+        divElement.style.display = "none";
+    }
+}
 function initializeLabel() {
     // 获取文本框元素
     let value = document.getElementById("Text1");

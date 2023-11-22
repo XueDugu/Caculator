@@ -4,16 +4,30 @@
 <head>
     <meta charset="UTF-8">
     <title>Caculator</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" type="text/css" href="caculator.css">
     <script type="text/javascript" src="caculator.js"></script>
 </head>
 
 <body onload="init()">
-    <div class="div1">
+    <ul>
+        <li style="--clr:#24fbff;">
+            <a href="#" id="home">
+                <i class="fa-solid fa-house"></i>
+                <span>Home</span>
+            </a>
+        </li>
+        <li style="--clr:#081d1e;">
+            <a href="#" id="caculator">
+                <i class="fa-solid fa-calculator"></i>
+                <span>Caculator</span>
+            </a>
+        </li>
+    </ul>
+    <div class="div1" style="display: none;">
         <div class="div2">
             <input type="text" id="Text1" class="text1">
         </div>
-
         <div class="div3">
             <input type="submit" value="文本框解锁/锁定" id="unlock">
             <input type="button" value="清" class="">
