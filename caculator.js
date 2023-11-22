@@ -531,6 +531,55 @@ function addFunctionality() {
                             board.style.display = "block";
                         }
                         break;
+                    case "显示/关闭视频":
+                        var video=document.getElementById("video");
+                        var put=document.getElementById("ChangeVideo");
+                        var change=document.getElementById("changeVideo");
+                        if(video.style.display=="block"){
+                            video.style.display="none";
+                            put.style.display="none";
+                            change.style.display="none";
+                        }
+                        else{
+                            video.style.display="block";
+                            put.style.display="block";
+                            change.style.display="block";
+                        }
+                        break;
+                    case "切换视频":
+                        var bvid=document.getElementById("ChangeVideo").value;
+                        if((bvid.length!=12)||(bvid[0]!='B'&&bvid[1]!='V'&&/^[a-zA-Z0-9]{10}$/.test(bvid.substring(2)))){
+                            getText.value="请重新输入正确BV号";
+                        }
+                        else{
+                            var require = "https://api.bilibili.com/x/web-interface/view?bvid=" + bvid;
+                            fetch(require)
+                                .then(response => {
+                                    // 检查HTTP响应状态
+                                    if (!response.ok) {
+                                        throw new Error("Network response was not ok");
+                                    }
+                                    // 将响应解析为JSON
+                                    return response.json();
+                                })
+                                .then(data => {
+                                    // 检查数据是否存在以及包含所需的字段
+                                    if (data && data.aid && data.cid) {
+                                        var aid = data.aid;
+                                        var cid = data.cid;
+                                        // 设置视频源
+                                        document.getElementById("video").src = "https://player.bilibili.com/player.html?aid=" + aid + "&bvid=" + bvid + "&cid=" + cid + "&page=1&high_quality=1&danmaku=0";
+                                    } else {
+                                        getText.value="获取aid失败";
+                                        throw new Error("Invalid data format or missing required fields");
+                                    }
+                                })
+                                .catch(error => {
+                                    // 处理错误
+                                    console.error("Error during fetch operation:", error);
+                                });
+                        }
+                        break;
                 }
             }
         };
@@ -611,4 +660,16 @@ function solveFourVariableEquation(a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t) {
     let z = e*inverseMatrix[2][0]+j*inverseMatrix[2][1]+o*inverseMatrix[2][2]+t*inverseMatrix[2][3];
     let w = e*inverseMatrix[3][0]+j*inverseMatrix[3][1]+o*inverseMatrix[3][2]+t*inverseMatrix[3][3];
     return [x,y,z,w];
+}
+
+function changeAid() {
+    var newAid = "123456789";  // The new aid value you want to set
+    var iframe = document.getElementById("bilibiliIframe");
+    var currentSrc = iframe.getAttribute("src");
+
+    // Use regex to replace the current aid value
+    var newSrc = currentSrc.replace(/aid=\d+/, "aid=" + newAid);
+
+    // Update the src attribute of the iframe
+    iframe.setAttribute("src", newSrc);
 }
