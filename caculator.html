@@ -40,8 +40,10 @@
             <input type="button" value="搜" id="baidu">
             <input type="shorttext" id="InputX1" name="equation" style="display: none;">
             <span id="onex" style="display: none;">x+</span>
+            <span id="one2x" style="display: none;">x^2+</span>
             <input type="shorttext" id="InputY1" name="equation" style="display: none;">
             <span id="oney" style="display: none;">y</span>
+            <span id="one1x" style="display: none;">x</span>
             <span id="onea" style="display: none;">+</span>
             <input type="shorttext" id="InputZ1" name="equation" style="display: none;">
             <span id="onez" style="display: none;">z</span>
@@ -65,8 +67,10 @@
             <span id="thrz" style="display: none;">z</span>
             <span id="thre" style="display: none;">=</span>
             <input type="shorttext" id="Input3" name="equation" style="display: none;">
+            <input type="widebutton" value="1元2次" class="">
             <input type="widebutton" value="2元1次" class="">
             <input type="widebutton" value="3元1次" class="">
+            <input type="widebutton" value="4元1次" class="">
             <input type="submit" value="解方程" id="solveButton">
             x=
             <input type="middletext" id="outputx" value="0" readonly disabled>
@@ -74,6 +78,10 @@
             <input type="middletext" id="outputy" value="0" readonly disabled>
             z=
             <input type="middletext" id="outputz" value="0" readonly disabled>
+            w=
+            <input type="middletext" id="outputw" value="0" readonly disabled>
+            <input type="widerbutton" value="显示/关闭画板" class="">
+            <iframe src="https://www.netpad.net.cn/svg.html" id="board" width="1100" height="800" style="display: none;"></iframe>
         </div>
     </div>
 </body>

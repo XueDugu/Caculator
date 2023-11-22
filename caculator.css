@@ -47,6 +47,13 @@ input[type="widebutton"] {
     background: rgb(206, 218, 32);
 }
 
+input[type="widerbutton"] {
+    width: 90px;
+    margin-right: 5px;
+    border-radius: 10px;
+    background: rgb(32, 218, 203);
+}
+
 input[type="shorttext"] {
     width: 120px;
     text-align: right;

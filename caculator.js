@@ -88,9 +88,25 @@ function addFunctionality() {
                         numFirst = 0;
                         symbol = "";
                         break;
+                    case "1元2次":
+                        equation=1;
+                        getText.value = "求解1元2次方程";
+                        var X = document.getElementById("InputX1");
+                        X.style.display = "block";
+                        var Y = document.getElementById("InputY1");
+                        Y.style.display = "block";
+                        var raw = document.getElementById("Input1");
+                        raw.style.display = "block";
+                        var one = document.getElementById("one2x");
+                        one.style.display = "block";
+                        var one = document.getElementById("one1x");
+                        one.style.display = "block";
+                        var one = document.getElementById("onee");
+                        one.style.display = "block";
+                        break;
                     case "2元1次":
                         equation = 2;
-                        getText.value = "求解2元1次方程";
+                        getText.value = "求解2元1次方程组";
                         var X = document.getElementById("InputX1");
                         X.style.display = "block";
                         var Y = document.getElementById("InputY1");
@@ -118,7 +134,7 @@ function addFunctionality() {
                         break;
                     case "3元1次":
                         equation = 3;
-                        getText.value = "求解3元1次方程";
+                        getText.value = "求解3元1次方程组";
                         var X = document.getElementById("InputX1");
                         X.style.display = "block";
                         var Y = document.getElementById("InputY1");
@@ -175,7 +191,32 @@ function addFunctionality() {
                         thr.style.display = "block";
                         break;
                     case "解方程":
-                        if (equation == 2) {
+                        if (equation == 1) {
+                            var a = parseFloat(document.getElementById("InputX1").value);
+                            var b = parseFloat(document.getElementById("InputY1").value);
+                            var c = parseFloat(document.getElementById("Input1").value);
+                            if(b*b+4*a*c==0){
+                                var x1=(-b+Math.sqrt(b*b+4*a*c))/(2*a);
+                                getTextx.value=x1;
+                                getText.value = "2元1次方程有两个相等实根";
+                            }
+                            else if(b*b+4*a*c<0){
+                                var c=-b/(2*a);
+                                var xe=Math.sqrt(b*b+4*a*c)/(2*a);
+                                getTextx.value = c+"+"+xe+"e "+c+"-"+xe+"e";
+                                getText.value = "2元1次方程有两个不等虚根";
+                            }
+                            else{
+                                var x1=(-b+Math.sqrt(b*b+4*a*c))/(2*a);
+                                var x2=(-b-Math.sqrt(b*b+4*a*c))/(2*a);
+                                getTextx.value = x1+" "+x2;
+                                getText.value = "2元1次方程有两个不等实根";
+                            }
+                            if(isNaN(getText.value)||isNaN(getTexty.value)){
+                                getText.value = "解不出2元1次方程";
+                            }
+                        }
+                        else if (equation == 2) {
                             var a = parseFloat(document.getElementById("InputX1").value);
                             var b = parseFloat(document.getElementById("InputY1").value);
                             var d = parseFloat(document.getElementById("InputX2").value);
@@ -186,13 +227,20 @@ function addFunctionality() {
                                 getText.value = "成功解出2元1次方程";
                                 getTextx.value = (c * e - b * f) / (a * e - b * d);
                                 getTexty.value = (c * d - a * f) / (b * d - a * e);
+                                if(isNaN(getText.value)||isNaN(getTexty.value)){
+                                    getText.value = "解不出2元1次方程";
+                                }
                             }
                             else{
-                                getText.value = "解不出2元1次方程";
+                                if(a*f==d*c){
+                                    getText.value= "2元1次方程组有无数个解";
+                                }
+                                else{
+                                    getText.value = "2元1次方程组无解";
+                                }
                             }
                         }
                         else if (equation == 3) {
-                            getText.value = -3;
                             var a = parseFloat(document.getElementById("InputX1").value);
                             var b = parseFloat(document.getElementById("InputY1").value);
                             var c = parseFloat(document.getElementById("InputZ1").value);
@@ -213,9 +261,21 @@ function addFunctionality() {
                                 getText.value = "成功解出3元1次方程";
                             }
                         }
-                        else{
-                            getText.value = -1;
+                        else if(equation==4){
+                            getText.value = -4;
                         }
+                        else{
+                            getText.value = "未知方程";
+                        }
+                        break;
+                    case "显示/关闭画板":
+                        var board = document.getElementById("board");
+                        if (board.style.display === "block") {
+                            board.style.display = "none";
+                        } else {
+                            board.style.display = "block";
+                        }
+                        break;
                 }
             }
         };
