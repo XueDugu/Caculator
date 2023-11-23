@@ -31,6 +31,7 @@ function goHome() {
 }
 
 function showCaculator() {
+    document.getElementById( "Text1" ).value="0";
     var divElement = document.querySelector( ".div_caculator" );
     if ( divElement.style.display === "none" || divElement.style.display === "" ) {
         divElement.style.display = "block";
@@ -351,6 +352,9 @@ function addFunctionality() {
                         break;
                     case "Baidu":
                         choose_search = 1;
+                        if ( getText.value != 0&&getText.value!="" ) {
+                            question = getText.value;
+                        }
                         if ( question == "" ) {
                             window.location.href = "http://www.baidu.com/";
                         } else {
@@ -358,7 +362,9 @@ function addFunctionality() {
                         }
                         break;
                     case "Google":
-                        choose_search = 2;
+                        choose_search = 2;if ( getText.value != 0&&getText.value!="" ) {
+                            question = getText.value;
+                        }
                         if ( question == "" ) {
                             window.location.href = "http://www.google.com/";
                         } else {
@@ -367,6 +373,9 @@ function addFunctionality() {
                         break;
                     case "Bing":
                         choose_search = 3;
+                        if ( getText.value != 0&&getText.value!="" ) {
+                            question = getText.value;
+                        }
                         if ( question == "" ) {
                             window.location.href = "http://www.bing.com/";
                         } else {
@@ -375,6 +384,9 @@ function addFunctionality() {
                         break;
                     case "Yahoo":
                         choose_search = 4;
+                        if ( getText.value != 0&&getText.value!="" ) {
+                            question = getText.value;
+                        }
                         if ( question == "" ) {
                             window.location.href = "http://sg.search.yahoo.com/";
                         } else {
