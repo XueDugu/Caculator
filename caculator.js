@@ -15,6 +15,41 @@ function monitor() {
     document.getElementById( "gpt" ).addEventListener( "click", showGPT );
     document.getElementById( "video" ).addEventListener( "click", showVideo );
     document.getElementById( "unlock" ).addEventListener( "click", unlock );
+    document.getElementById( "identity" ).addEventListener( "click", showIdentity );
+}
+
+function showIdentity() {
+    if ( document.querySelector( ".div_text" ).style.display === "none" ) {
+        document.querySelector( ".div_text" ).style.display = "block";
+    }
+    if ( document.getElementById( "Text1" ).value != "身份识别" ) {
+        document.getElementById( "Text1" ).value = "权限不足";
+        document.getElementById( "Text1" ).disabled = true;
+    } else {
+        if ( document.querySelector( ".div_equation" ).style.display === "none" ) {
+            document.querySelector( ".div_equation" ).style.display = "block";
+        }
+        var user_name = document.getElementById( "InputX1" );
+        user_name.value = "输入用户名";
+        user_name.style.display = "block";
+        var school = document.getElementById( "InputY1" );
+        school.value = "输入学校";
+        school.style.display = "block";
+        var activity = document.getElementById( "Input1" );
+        activity.value = "输入活动名";
+        activity.style.display = "block";
+        var whole = "https://7ad1d265-cf08-40fb-a9fb-9e769b71aff3.mock.pstmn.io/home?user_name=" + encodeURIComponent( user_name.value ) +
+            "&school=" + encodeURIComponent( school.value ) +
+            "&activity=" + encodeURIComponent( activity.value );
+        fetch( whole )
+            .then( response => response.json() )
+            .then( data => {
+                window.location.href = data;
+            } )
+            .catch( error => {
+                console.error( 'Error fetching data:', error );
+            } );
+    }
 }
 
 function unlock() {
@@ -31,7 +66,7 @@ function goHome() {
 }
 
 function showCaculator() {
-    document.getElementById( "Text1" ).value="0";
+    document.getElementById( "Text1" ).value = "0";
     var divElement = document.querySelector( ".div_caculator" );
     if ( divElement.style.display === "none" || divElement.style.display === "" ) {
         divElement.style.display = "block";
@@ -60,7 +95,7 @@ function showCaculator() {
 }
 
 function showSearch() {
-    document.getElementById( "Text1" ).value="搜索";
+    document.getElementById( "Text1" ).value = "搜索";
     var divElement = document.querySelector( ".div_search" );
     if ( divElement.style.display === "none" || divElement.style.display === "" ) {
         divElement.style.display = "block";
@@ -93,7 +128,7 @@ function showSearch() {
 }
 
 function showEquation() {
-    document.getElementById( "Text1" ).value="解方程";
+    document.getElementById( "Text1" ).value = "解方程";
     var divElement = document.querySelector( ".div_equation" );
     if ( divElement.style.display === "none" || divElement.style.display === "" ) {
         divElement.style.display = "block";
@@ -122,7 +157,7 @@ function showEquation() {
 }
 
 function showBoard() {
-    document.getElementById( "Text1" ).value="画板";
+    document.getElementById( "Text1" ).value = "画板";
     var divElement = document.querySelector( ".div_board" );
     if ( divElement.style.display === "none" || divElement.style.display === "" ) {
         divElement.style.display = "block";
@@ -155,7 +190,7 @@ function showBoard() {
 }
 
 function showGPT() {
-    document.getElementById( "Text1" ).value="大语言模型";
+    document.getElementById( "Text1" ).value = "大语言模型";
     var divElement = document.querySelector( ".div_GPT" );
     if ( divElement.style.display === "none" || divElement.style.display === "" ) {
         divElement.style.display = "block";
@@ -188,7 +223,7 @@ function showGPT() {
 }
 
 function showVideo() {
-    document.getElementById( "Text1" ).value="视频";
+    document.getElementById( "Text1" ).value = "视频";
     var divElement = document.querySelector( ".div_video" );
     if ( divElement.style.display === "none" || divElement.style.display === "" ) {
         divElement.style.display = "block";
@@ -252,6 +287,7 @@ function addFunctionality() {
     var equation;
     var question = "";
     var choose_search = 0;
+    var extra = 0;
 
     for ( let i = 0; i < nums.length; i++ ) {
         // 为每个按钮添加点击事件
@@ -287,6 +323,9 @@ function addFunctionality() {
                         question += getText.value;
                         break;
                     case "=":
+                        if ( getText.value === "身份识别" ) {
+                            extra = 1;
+                        }
                         switch ( symbol ) {
                             case "+":
                                 getText.value = numFirst + Number( getText.value );
@@ -309,8 +348,8 @@ function addFunctionality() {
                         symbol = "";
                         break;
                     case "搜":
-                        if(getText.value=="搜索"){
-                            getText.value="";
+                        if ( getText.value == "搜索" ) {
+                            getText.value = "";
                         }
                         if ( getText.value != 0 ) {
                             question += getText.value;
@@ -352,7 +391,7 @@ function addFunctionality() {
                         break;
                     case "Baidu":
                         choose_search = 1;
-                        if ( getText.value != 0&&getText.value!="" ) {
+                        if ( getText.value != 0 && getText.value != "" ) {
                             question = getText.value;
                         }
                         if ( question == "" ) {
@@ -362,7 +401,8 @@ function addFunctionality() {
                         }
                         break;
                     case "Google":
-                        choose_search = 2;if ( getText.value != 0&&getText.value!="" ) {
+                        choose_search = 2;
+                        if ( getText.value != 0 && getText.value != "" ) {
                             question = getText.value;
                         }
                         if ( question == "" ) {
@@ -373,7 +413,7 @@ function addFunctionality() {
                         break;
                     case "Bing":
                         choose_search = 3;
-                        if ( getText.value != 0&&getText.value!="" ) {
+                        if ( getText.value != 0 && getText.value != "" ) {
                             question = getText.value;
                         }
                         if ( question == "" ) {
@@ -384,7 +424,7 @@ function addFunctionality() {
                         break;
                     case "Yahoo":
                         choose_search = 4;
-                        if ( getText.value != 0&&getText.value!="" ) {
+                        if ( getText.value != 0 && getText.value != "" ) {
                             question = getText.value;
                         }
                         if ( question == "" ) {
@@ -718,7 +758,7 @@ function addFunctionality() {
                         }
                         break;
                     case "显示/关闭视频":
-                        var video = document.getElementById( "video" );
+                        var video = document.getElementById( "video_bilibili" );
                         var put = document.getElementById( "ChangeVideo" );
                         var change = document.getElementById( "changeVideo" );
                         if ( video.style.display == "block" ) {
