@@ -89,16 +89,17 @@ ul li:hover a i,
 ul li:hover a span{
     filter:drop-shadow(0 0 20px var(--clr)) drop-shadow(0 0 40px var(--clr)) drop-shadow(0 0 60px var(--clr));
 }
-.div1 {
+.div_all {
     width: 180px;
     height: 200px;
     top: 100px;
     left: 100px;
     position: absolute;
     background: url("../img/img_1.png");
+    flex-direction: row;
 }
 
-.div2 {
+.div_text {
     width: 140px;
     position: relative;
     left: 15px;
@@ -111,7 +112,47 @@ ul li:hover a span{
     background-color: white;
 }
 
-.div3 {
+.div_caculator {
+    width: 160px;
+    height: 116px;
+    position: relative;
+    left: 15px;
+    top: 50px;
+}
+
+.div_search {
+    width: 160px;
+    height: 116px;
+    position: relative;
+    left: 15px;
+    top: 50px;
+}
+
+.div_equation {
+    width: 160px;
+    height: 116px;
+    position: relative;
+    left: 15px;
+    top: 50px;
+}
+
+.div_board {
+    width: 160px;
+    height: 116px;
+    position: relative;
+    left: 15px;
+    top: 50px;
+}
+
+.div_GPT {
+    width: 160px;
+    height: 116px;
+    position: relative;
+    left: 15px;
+    top: 50px;
+}
+
+.div_video {
     width: 160px;
     height: 116px;
     position: relative;

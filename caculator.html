@@ -11,25 +11,55 @@
 
 <body onload="init()">
     <ul>
-        <li style="--clr:#24fbff;">
+        <li style="--clr:rgb(194, 216, 217);">
             <a href="#" id="home">
                 <i class="fa-solid fa-house"></i>
                 <span>Home</span>
             </a>
         </li>
-        <li style="--clr:#081d1e;">
+        <li style="--clr:#d7401e;">
             <a href="#" id="caculator">
                 <i class="fa-solid fa-calculator"></i>
                 <span>Caculator</span>
             </a>
         </li>
+        <li style="--clr:#d18419;">
+            <a href="#" id="search">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <span>Search</span>
+            </a>
+        </li>
+        <li style="--clr:#bfce1d;">
+            <a href="#" id="equation">
+                <i class="fa-solid fa-x"></i>
+                <span>Equation</span>
+            </a>
+        </li>
+        <li style="--clr:rgb(33, 191, 49);">
+            <a href="#" id="board">
+                <i class="fa-solid fa-pencil"></i>
+                <span>Board</span>
+            </a>
+        </li>
+        <li style="--clr:#076064;">
+            <a href="#" id="gpt">
+                <i class="fa-solid fa-robot"></i>
+                <span>GPT</span>
+            </a>
+        </li>
+        <li style="--clr:#41e2fb;">
+            <a href="#" id="video">
+                <i class="fa-solid fa-video"></i>
+                <span>Video</span>
+            </a>
+        </li>
     </ul>
-    <div class="div1" style="display: none;">
-        <div class="div2">
+    <div class="div_all">
+        <div class="div_text"  style="display: none;">
             <input type="text" id="Text1" class="text1">
-        </div>
-        <div class="div3">
             <input type="submit" value="文本框解锁/锁定" id="unlock">
+        </div>
+        <div class="div_caculator"  style="display: none;">
             <input type="button" value="清" class="">
             <input type="button" value="删" class="">
             <input type="button" value="+/-" class="">
@@ -52,11 +82,15 @@
             <input type="button" value="0" class="">
             <input type="button" value="." class="">
             <input type="button" value="=" class="">
+        </div>
+        <div class="div_search"  style="display: none;">
             <input type="button" value="搜" id="search">
             <input type="widebutton" value="Baidu" id="baidu" class="" style="display: none;">
             <input type="widebutton" value="Google" id="google" class="" style="display: none;">
             <input type="widebutton" value="Bing" id="bing" class="" style="display: none;">
             <input type="widebutton" value="Yahoo" id="yahoo" class="" style="display: none;">
+        </div>
+        <div class="div_equation"  style="display: none;">
             <input type="shorttext" id="InputX1" name="equation" style="display: none;">
             <span id="onex" style="display: none;">x+</span>
             <span id="one2x" style="display: none;">x^2+</span>
@@ -120,12 +154,18 @@
             <input type="middletext" id="outputz" value="0" readonly disabled>
             w=
             <input type="middletext" id="outputw" value="0" readonly disabled>
+        </div>
+        <div class="div_board"  style="display: none;">
             <input type="widerbutton" value="显示/关闭画板" class="">
             <iframe src="https://www.netpad.net.cn/svg.html" id="board" width="1100" height="800" style="display: none;"></iframe>
+        </div>
+        <div class="div_GPT"  style="display: none;">
             <input type="longbutton" value="显示/关闭需代理ChatGPT" class="">
             <iframe src="https://chat.openai.com/" id="openai" width="1100" height="800" style="display: none;"></iframe>
             <input type="longbutton" value="显示/关闭无代理ChatGPT" class="">
             <iframe src="https://chat.kbiai.de/#/" id="chat" width="1100" height="800" style="display: none;"></iframe>
+        </div>
+        <div class="div_video"  style="display: none;">
             <input type="longbutton" value="显示/关闭视频" class="">
             <input type="shorttext" id="ChangeVideo" name="equation" style="display: none;">
             <input type="longbutton" value="切换视频" class="" id="changeVideo" style="display: none;">
