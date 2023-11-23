@@ -1,3 +1,3 @@
 # Web
 
-An Web, with various function.
+A Web, with various functions.
