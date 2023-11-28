@@ -212,3 +212,14 @@ input[type="middletext"] {
 #unlock {
     width: 150px;
 }
+
+#third {
+    display: block;
+    width: 50%;
+    height: 75%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    overflow: scroll; /* 允许滚动条出现 */
+}

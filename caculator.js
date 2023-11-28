@@ -16,37 +16,61 @@ function monitor() {
     document.getElementById( "video" ).addEventListener( "click", showVideo );
     document.getElementById( "unlock" ).addEventListener( "click", unlock );
     document.getElementById( "identity" ).addEventListener( "click", showIdentity );
+    document.getElementById( "cube" ).addEventListener( "click", showCube );
 }
 
+function showCube(){
+    var third=document.getElementById( "third");
+    if(third.style.display=="none"){
+        third.style.display="block";
+    }
+    else{
+        third.style.display="none";
+    }
+}
 function showIdentity() {
+    var user_name = document.getElementById( "InputX1" );
+    var school = document.getElementById( "InputY1" );
+    var activity = document.getElementById( "Input1" );
     if ( document.querySelector( ".div_text" ).style.display === "none" ) {
         document.querySelector( ".div_text" ).style.display = "block";
     }
-    if ( document.getElementById( "Text1" ).value != "身份识别" ) {
+    if ( document.getElementById( "Text1" ).value != "身份识别"&&document.getElementById( "Text1" ).value != "进入活动" ) {
         document.getElementById( "Text1" ).value = "权限不足";
         document.getElementById( "Text1" ).disabled = true;
-    } else {
+    } 
+    else if(document.getElementById( "Text1" ).value != "进入活动"){
+        document.getElementById( "Text1" ).value = "进入活动";
         if ( document.querySelector( ".div_equation" ).style.display === "none" ) {
             document.querySelector( ".div_equation" ).style.display = "block";
         }
-        var user_name = document.getElementById( "InputX1" );
+        
         user_name.value = "输入用户名";
         user_name.style.display = "block";
-        var school = document.getElementById( "InputY1" );
+        
         school.value = "输入学校";
         school.style.display = "block";
-        var activity = document.getElementById( "Input1" );
+        
         activity.value = "输入活动名";
         activity.style.display = "block";
+    }
+    else if(document.getElementById( "Text1" ).value == "进入活动"){
+        document.getElementById( "Text1" ).value == "加载中";
         var whole = "https://7ad1d265-cf08-40fb-a9fb-9e769b71aff3.mock.pstmn.io/home?user_name=" + encodeURIComponent( user_name.value ) +
             "&school=" + encodeURIComponent( school.value ) +
             "&activity=" + encodeURIComponent( activity.value );
         fetch( whole )
             .then( response => response.json() )
             .then( data => {
-                window.location.href = data;
+                if(data){
+                    window.location.href = data;
+                }
+                else{
+                    document.getElementById( "Text1" ).value = "无效活动";
+                }
             } )
             .catch( error => {
+                document.getElementById( "Text1" ).value = "无效活动";
                 console.error( 'Error fetching data:', error );
             } );
     }
